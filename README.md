@@ -9,8 +9,8 @@ EventBus for iOS  non-ARC
 2. AsyncEvent 异步事件，具有一定的生命周期(event.life)，会存储在EventBus上(EventBus具有一定的容量)
               异步事件需要异步订阅者(id<EventAsyncSubscriber>)主动去读取事件。
 
-使用：
-订阅者：
+使用:
+订阅者:
   1. 标记自己实现<EventAsyncSubscriber> 或 <EventSyncSubscriber>接口, 表明自己为订阅者;
   2. 在适当时刻使用宏EVENT_SUBSCRIBE(self,eventName)订阅eventName事件，一般可以在init 或 controller的 viewDidLoad方法中;
   3. 事件发生时会回调<EventSubscriber>接口中的方法- (void)eventOccurred: (NSString *)eventName event:(Event *)event，
