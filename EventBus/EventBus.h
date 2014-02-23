@@ -51,7 +51,6 @@
  */
 @interface EventBus : NSObject
 
-@property (nonatomic, assign) int capacity;     //事件总线容量
 + (EventBus *)busManager;
 - (void)addSubscriber: (id<EventSubscriber>)subscriber event: (NSString *)eventName;
 - (void)removeSubscriber: (id<EventSubscriber>)subscriber event: (NSString *)eventName;

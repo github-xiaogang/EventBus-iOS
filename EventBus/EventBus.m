@@ -10,8 +10,8 @@
 #import "MAZeroingWeakRef.h"
 #import "MAWeakArray.h"
 
-//事件线长度
-int const EVENT_COUNT = 10;
+//事件线容量
+int const EVENT_COUNT = 20;
 //事件生命
 int const EVENT_LIFE = 10;
 
