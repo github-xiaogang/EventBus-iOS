@@ -22,5 +22,7 @@ EventBus for iOS  non-ARC
   2. 在事件发生时使用宏EVENT_PUBLISH(self,eventName)发布eventName事件，或使用EVENT_PUBLISH_WITHDATA(self,eventName,eventData)
      在发布事件同时传递eventData数据.
 
+另外:
+  代码中使用了 MAZeroingWeakRef 来实现弱引用， 地址: https://github.com/mikeash/MAZeroingWeakRef
 
 详见Demo
