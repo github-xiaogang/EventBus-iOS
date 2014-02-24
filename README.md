@@ -7,7 +7,7 @@ EventBus for iOS  non-ARC
 1. SyncEvent  类似于使用NotificationCenter发出的通知，不会存储在EventBus上，
               事件发生时会直接调用同步事件订阅者(id<EventSyncSubscriber>)。
 2. AsyncEvent 异步事件，具有一定的生命周期(event.life)，会存储在EventBus上(EventBus具有一定的容量)
-              异步事件需要异步订阅者(id<EventAsyncSubscriber>)主动去读取事件。
+              异步事件需要异步订阅者(id< EventAsyncSubscriber >)主动去读取事件。
 
 使用: 
 
