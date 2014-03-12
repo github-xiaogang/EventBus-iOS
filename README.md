@@ -27,3 +27,5 @@ EventBus for iOS  non-ARC
   代码中使用了 MAZeroingWeakRef 来实现弱引用， 地址: https://github.com/mikeash/MAZeroingWeakRef
 
 详见Demo
+
+Next：　做一个Xcode插件，收集所有的事件，以及事件的发布者和订阅者，方便开发。
