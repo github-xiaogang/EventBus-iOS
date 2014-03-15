@@ -3,6 +3,9 @@ EventBus-iOS
 
 EventBus for iOS  non-ARC
 
+to help you use it, I write a Xcode plug-in called EventBus-iOS-Plugin ( https://github.com/github-xiaogang/EventBus-iOS-Plugin )
+
+
 有两种事件:
 1. SyncEvent  类似于使用NotificationCenter发出的通知，不会存储在EventBus上，
               事件发生时会直接调用同步事件订阅者(id< EventSyncSubscriber >)。
@@ -28,4 +31,4 @@ EventBus for iOS  non-ARC
 
 详见Demo
 
-Next：　做一个Xcode插件，收集所有的事件，以及事件的发布者和订阅者，方便开发。
+
