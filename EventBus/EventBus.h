@@ -10,6 +10,8 @@
 #import "EventPublisher.h"
 #import "EventSubscriber.h"
 
+extern NSString * const EventBusLogNotification;
+extern NSString * const EventBusLogUserInfoKey;
 /**
  * 订阅者需要 标记自己为EventAsyncSubscriber 或 EventSyncSubscriber
  *  AsyncSubscriber: 标记自己为异步事件订阅者，表明自己会主动读取 事件。
@@ -25,26 +27,34 @@
 
 /**
  * 订阅事件
- * 使用者: 所有订阅者（id<EventSubscriber>）
  */
 #define EVENT_SUBSCRIBE(subscriber,eventName) ([[EventBus busManager] addSubscriber:(subscriber) event: (eventName)])
-/**
- * 检查事件
- * 使用者: 仅异步订阅者可以检查（id<EventAsyncSubscriber>）
- */
-#define EVENT_CHECK(subscriber,eventName) ([[EventBus busManager] checkEvent:(eventName) forSubscriber:(subscriber)])
+
 /**
  * 取消订阅
- * 使用者: 所有订阅者（id<EventSubscriber>）
  */
 #define EVENT_UNSUBSCRIBE(subscriber,eventName) ([[EventBus busManager] removeSubscriber:(subscriber) event: (eventName)])
 
 /**
- * 发布事件
- * 使用者: 所有发布者（id<EventPublisher>）
+ * 读取事件
+ * 使用者: 仅异步订阅者可以检查（id<EventAsyncSubscriber>）
  */
-#define EVENT_PUBLISH_WITHDATA(publisher,eventName,eventData_obj) ([[EventBus busManager] publish:(eventName) eventData: (eventData_obj) by:(publisher)])
-#define EVENT_PUBLISH(publisher,eventName) EVENT_PUBLISH_WITHDATA(publisher,eventName,nil)
+#define EVENT_CHECK(subscriber,eventName) ([[EventBus busManager] checkEvent:(eventName) forSubscriber:(subscriber)])
+//OR
+#define EVENT_CHECK_ANY(subscriber,eventNames_array) ([[EventBus busManager] checkEvents_OR:(eventNames_array) forSubscriber:(subscriber)])
+//AND
+#define EVENT_CHECK_ALL(subscriber,eventNames_array) ([[EventBus busManager] checkEvents_AND:(eventNames_array) forSubscriber:(subscriber)])
+
+/**
+ * 发布事件
+ * @p   publisher           发布者
+ * @p   eventName           事件名
+ * @p   eventData_obj       事件相关data            可选
+ * @p   life                事件生命长度(异步事件)    可选
+ */
+#define EVENT_PUBLISH_WITHDATA_LIFE(publisher,eventName,eventData_obj,lifeLength) ([[EventBus busManager] publish:(eventName) eventData:(eventData_obj) by:(publisher) life:(lifeLength)])
+#define EVENT_PUBLISH_WITHDATA(publisher,eventName,eventData_obj) EVENT_PUBLISH_WITHDATA_LIFE(publisher,eventName,eventData_obj,0)
+#define EVENT_PUBLISH(publisher,eventName) EVENT_PUBLISH_WITHDATA_LIFE(publisher,eventName,nil,0)
 
 /**
  * @class EventBus
@@ -54,13 +64,16 @@
 + (EventBus *)busManager;
 - (void)addSubscriber: (id<EventSubscriber>)subscriber event: (NSString *)eventName;
 - (void)removeSubscriber: (id<EventSubscriber>)subscriber event: (NSString *)eventName;
-- (void)publish:(NSString *)eventName eventData: (id)eventData by:(id<EventPublisher>)publisher;
+- (void)publish:(NSString *)eventName eventData: (id)eventData by:(id<EventPublisher>)publisher life: (int)life;
 - (void)checkEvent: (NSString *)eventName forSubscriber: (id<EventAsyncSubscriber>)subscriber;
+- (void)checkEvents_OR: (NSArray*)eventNames forSubscriber: (id<EventAsyncSubscriber>)subscriber;
+- (void)checkEvents_AND: (NSArray *)eventNames forSubscriber: (id<EventAsyncSubscriber>)subscriber;
 
 //actually , only async event can be retrieved
 - (Event *)event: (NSString *)eventName;
 //force remove
 - (void)remove: (NSString *)eventName;
+- (NSArray *)allEvent;
 
 @end
 
@@ -72,7 +85,7 @@
 
 @property (nonatomic, assign) int life;
 @property (nonatomic, retain) NSString * eventName;
-@property (nonatomic, assign) id <EventPublisher>publisher;
+@property (nonatomic, assign) id <EventPublisher> publisher;
 @property (nonatomic, retain) id eventData;
 
 @end

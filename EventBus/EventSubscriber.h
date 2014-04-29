@@ -20,8 +20,8 @@
  *  异步事件订阅者标记接口，异步订阅者标明自己会主动获取读取事件。EventBusManager不会主动发送Event给异步订阅者
  */
 @protocol EventAsyncSubscriber <EventSubscriber>
-
-//检查事件，如果存在，EventBus会发送 eventOccurred:
+@optional
+- (void)eventsOccurred: (NSArray *)eventNames event:(NSArray *)events;
 
 @end
 

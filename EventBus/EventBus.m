@@ -10,6 +10,9 @@
 #import "MAZeroingWeakRef.h"
 #import "MAWeakArray.h"
 
+NSString * const EventBusLogNotification = @"EventBusLogNotification";
+NSString * const EventBusLogUserInfoKey = @"message";
+
 //事件线容量
 int const EVENT_COUNT = 20;
 //事件生命
@@ -51,7 +54,7 @@ int const EVENT_LIFE = 10;
     NSAssert([eventName isKindOfClass:[NSString class]], @"param eventName invalid !");
     NSMutableArray * subscribers = _subscriberList[eventName];
     if([subscribers containsObject:subscriber]){
-        NSLog(@"you have already subscribe ----> %@",eventName);
+        logging([NSString stringWithFormat:@"you have already subscribe ----> %@",eventName]);
         return;
     }
     if(subscribers == nil){
@@ -88,19 +91,92 @@ int const EVENT_LIFE = 10;
     }
 }
 
-- (void)publish:(NSString *)eventName eventData: (id)eventData by:(id<EventPublisher>)publisher
+- (void)publish:(NSString *)eventName eventData: (id)eventData by:(id<EventPublisher>)publisher life: (int)life
 {
     NSAssert([publisher conformsToProtocol:@protocol(EventPublisher)], @"must conform to EventPublisher protocol");
     NSAssert([publisher conformsToProtocol:@protocol(EventAsyncPublisher)] || [publisher conformsToProtocol:@protocol(EventSyncPublisher)], @"EventPublisher is a abstrct protocol !");
     NSAssert([eventName isKindOfClass:[NSString class]], @"param eventName invalid !");
-    [self _addEvent:eventName eventData:eventData publisher:publisher];
+    [self _addEvent:eventName eventData:eventData publisher:publisher life:life];
 }
 
 - (void)checkEvent: (NSString *)eventName forSubscriber: (id<EventAsyncSubscriber>)subscriber
 {
+    AsyncEvent * event = [self _checkEventExists:eventName forSubscriber:subscriber];
+    if(event){
+        [self _readEvent:event.eventName forSubscriber:subscriber];
+        if([subscriber respondsToSelector:@selector(eventOccurred:event:)]){
+            [subscriber eventOccurred:event.eventName event:event];
+        }
+    }
+}
+
+//任意一个事件发生，则成功
+- (void)checkEvents_OR: (NSArray*)eventNames forSubscriber: (id<EventAsyncSubscriber>)subscriber
+{
     NSAssert([subscriber conformsToProtocol:@protocol(EventAsyncSubscriber)], @"must conform to EventAsyncSubscriber protocol");
+    NSAssert([eventNames isKindOfClass:[NSArray class]], @"");
+    NSMutableArray * checkedEvents = [NSMutableArray array];
+    for (NSString * eventName in eventNames) {
+        AsyncEvent * event = [self _checkEventExists:eventName forSubscriber:subscriber];
+        if(event){
+            [checkedEvents addObject:event];
+        }
+    }
+    if(checkedEvents.count > 0){
+        for (AsyncEvent * event in checkedEvents) {
+            [self _readEvent:event.eventName forSubscriber:subscriber];
+        }
+        if([subscriber respondsToSelector:@selector(eventsOccurred:event:)]){
+            [subscriber eventsOccurred:eventNames event:checkedEvents];
+        }
+    }
+}
+
+//所有events都发生，则成功
+- (void)checkEvents_AND: (NSArray *)eventNames forSubscriber: (id<EventAsyncSubscriber>)subscriber
+{
+    NSAssert([subscriber conformsToProtocol:@protocol(EventAsyncSubscriber)], @"must conform to EventAsyncSubscriber protocol");
+    NSAssert([eventNames isKindOfClass:[NSArray class]], @"");
+    NSMutableArray * checkedEvents = [NSMutableArray array];
+    for (NSString * eventName in eventNames) {
+        AsyncEvent * event = [self _checkEventExists:eventName forSubscriber:subscriber];
+        if(event){
+            [checkedEvents addObject:event];
+        }
+    }
+    if(checkedEvents.count == eventNames.count){
+        for (NSString * eventName in eventNames) {
+            [self _readEvent:eventName forSubscriber:subscriber];
+        }
+        if([subscriber respondsToSelector:@selector(eventsOccurred:event:)]){
+            [subscriber eventsOccurred:eventNames event:checkedEvents];
+        }
+    }
+}
+
+
+- (NSArray *)allEvent
+{
+    return _eventList;
+}
+
+//force remove
+- (void)remove: (NSString *)eventName
+{
     NSAssert([eventName isKindOfClass:[NSString class]], @"param eventName invalid !");
-    [self _checkEvent:eventName forSubscriber:subscriber];
+    [self _removeEvent:eventName];
+}
+
+- (Event *)event: (NSString *)eventName
+{
+    AsyncEvent * targetEvent = nil;
+    for (AsyncEvent * event in _eventList) {
+        if([event.eventName isEqualToString:eventName]){
+            targetEvent = event;
+            break;
+        }
+    }
+    return targetEvent;
 }
 
 - (NSArray *)syncSubscribers: (NSString *)eventName
@@ -117,30 +193,9 @@ int const EVENT_LIFE = 10;
     return syncSubscribers;
 }
 
-//force remove
-- (void)remove: (NSString *)eventName
-{
-    NSAssert([eventName isKindOfClass:[NSString class]], @"param eventName invalid !");
-    [self _removeEvent:eventName];
-}
-
-
-- (Event *)event: (NSString *)eventName
-{
-    AsyncEvent * targetEvent = nil;
-    for (AsyncEvent * event in _eventList) {
-        if([event.eventName isEqualToString:eventName]){
-            targetEvent = event;
-            break;
-        }
-    }
-    return targetEvent;
-}
-
-
 #pragma mark -----------------   Event life cycle   ----------------
 
-- (void)_addEvent: (NSString *)eventName eventData: (id)eventData publisher: (id<EventPublisher>)publisher
+- (void)_addEvent: (NSString *)eventName eventData: (id)eventData publisher: (id<EventPublisher>)publisher life: (int)life
 {
     if([publisher conformsToProtocol:@protocol(EventAsyncPublisher)]){
         //遍历该事件是否已经存在，如果存在，则删除之前的事件
@@ -158,14 +213,14 @@ int const EVENT_LIFE = 10;
         }
         AsyncEvent * event = [[[AsyncEvent alloc] init] autorelease];
         event.eventName = eventName;
-        event.life = EVENT_LIFE;
+        event.life = (life > 0) ? life : EVENT_LIFE;
         event.publisher = publisher;
         event.eventData = eventData;
         [_eventList addObject:event];
     }else if([publisher conformsToProtocol:@protocol(EventSyncPublisher)]){
         SyncEvent * event = [[[SyncEvent alloc] init] autorelease];
         event.eventName = eventName;
-        event.publisher = (id __weak) publisher;
+        event.publisher = publisher;
         event.eventData = eventData;
         event.life = 0;
         NSArray * syncSubsribers = [self syncSubscribers:eventName];
@@ -178,13 +233,13 @@ int const EVENT_LIFE = 10;
     }
 }
 
-- (void)_checkEvent: (NSString *)eventName forSubscriber: (id<EventAsyncSubscriber>)subscriber
+- (AsyncEvent *)_checkEventExists: (NSString *)eventName forSubscriber: (id<EventAsyncSubscriber>)subscriber
 {
     //先检查subscriber是否订阅了该event
     NSArray * subscribers = _subscriberList[eventName];
     if(![subscribers containsObject:subscriber]){
-        NSLog(@"还没有订阅");
-        return;
+        logging([NSString stringWithFormat:@"%@ 没有订阅 %@",subscriber,eventName]);
+        return nil;
     }
     AsyncEvent * targetEvent = nil;
     for (AsyncEvent * event in _eventList) {
@@ -193,10 +248,28 @@ int const EVENT_LIFE = 10;
             break;
         }
     }
-    if(targetEvent && targetEvent.life > 0 && ![targetEvent hasMarked:(id<EventAsyncSubscriber>)subscriber]){
-        if([subscriber respondsToSelector:@selector(eventOccurred:event:)]){
-            [subscriber eventOccurred:targetEvent.eventName event:targetEvent];
+    if(targetEvent && ![targetEvent hasMarked:(id<EventAsyncSubscriber>)subscriber]){
+        return targetEvent;
+    }else{
+        return nil;
+    }
+}
+
+- (void)_readEvent: (NSString *)eventName forSubscriber: (id<EventAsyncSubscriber>)subscriber
+{
+    //先检查subscriber是否订阅了该event
+    NSArray * subscribers = _subscriberList[eventName];
+    if(![subscribers containsObject:subscriber]){
+        logging([NSString stringWithFormat:@"%@ 没有订阅 %@",subscriber,eventName]);
+    }
+    AsyncEvent * targetEvent = nil;
+    for (AsyncEvent * event in _eventList) {
+        if([event.eventName isEqualToString:eventName]){
+            targetEvent = event;
+            break;
         }
+    }
+    if(targetEvent && ![targetEvent hasMarked:(id<EventAsyncSubscriber>)subscriber]){
         //标记该subscriber
         [targetEvent markSubscriber:subscriber];
         targetEvent.life --;
@@ -218,12 +291,18 @@ int const EVENT_LIFE = 10;
     if(targetEvent) [_eventList removeObject:targetEvent];
 }
 
-
 - (void)dealloc
 {
     [super dealloc];
     [_eventList release];
     [_subscriberList release];
+}
+
+#pragma mark -----------------   util   ----------------
+
+void logging(NSString * message){
+    if(!message || ![message isKindOfClass:[NSString class]] || message.length == 0) return;
+    [[NSNotificationCenter defaultCenter] postNotificationName:EventBusLogNotification object:nil userInfo:@{EventBusLogUserInfoKey:message}];
 }
 
 @end
@@ -315,9 +394,8 @@ int const EVENT_LIFE = 10;
 - (BOOL)hasMarked: (id<EventAsyncSubscriber>)subscriber
 {
     NSAssert([subscriber conformsToProtocol:@protocol(EventAsyncSubscriber)], @"must conform to EventAsyncSubscriber protocol !");
-    return ([_markedSubscribers containsObject:subscriber] || [_markedSubscribers containsObject:nil]);
+    return ([_markedSubscribers containsObject:subscriber]);
 }
-
 
 - (void)dealloc
 {

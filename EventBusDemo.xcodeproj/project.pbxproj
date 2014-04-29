@@ -7,15 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F9E68E318B72D4200996EA4 /* GeneralTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E68E218B72D4200996EA4 /* GeneralTableCell.m */; };
-		1F9E68E718B72D9900996EA4 /* PublishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E68E518B72D9900996EA4 /* PublishCell.m */; };
-		1F9E68E818B72D9900996EA4 /* PublishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F9E68E618B72D9900996EA4 /* PublishCell.xib */; };
-		1F9E68F118B7382D00996EA4 /* SyncPublishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E68EF18B7382D00996EA4 /* SyncPublishCell.m */; };
-		1F9E68F218B7382D00996EA4 /* SyncPublishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F9E68F018B7382D00996EA4 /* SyncPublishCell.xib */; };
-		1F9E68F618B7395800996EA4 /* SubscribeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9E68F418B7395800996EA4 /* SubscribeCell.m */; };
-		1F9E68F718B7395800996EA4 /* SubscribeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F9E68F518B7395800996EA4 /* SubscribeCell.xib */; };
-		1F9ED64118B70CEB0053016D /* SyncPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9ED63F18B70CEB0053016D /* SyncPublishViewController.m */; };
-		1F9ED64218B70CEB0053016D /* SyncPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F9ED64018B70CEB0053016D /* SyncPublishViewController.xib */; };
 		1FA0D5DC18B6F56B00719BA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA0D5DB18B6F56B00719BA6 /* Foundation.framework */; };
 		1FA0D5DE18B6F56B00719BA6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA0D5DD18B6F56B00719BA6 /* CoreGraphics.framework */; };
 		1FA0D5E018B6F56B00719BA6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA0D5DF18B6F56B00719BA6 /* UIKit.framework */; };
@@ -29,19 +20,26 @@
 		1FA0D5FF18B6F56B00719BA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FA0D5FD18B6F56B00719BA6 /* InfoPlist.strings */; };
 		1FA0D60118B6F56B00719BA6 /* EventBusDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0D60018B6F56B00719BA6 /* EventBusDemoTests.m */; };
 		1FA0D60F18B6F5CC00719BA6 /* EventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0D60C18B6F5CC00719BA6 /* EventBus.m */; };
-		1FA0D61718B6FF8700719BA6 /* AsyncSubscribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0D61518B6FF8700719BA6 /* AsyncSubscribeViewController.m */; };
-		1FA0D61818B6FF8700719BA6 /* AsyncSubscribeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FA0D61618B6FF8700719BA6 /* AsyncSubscribeViewController.xib */; };
-		1FA0D61C18B6FF9800719BA6 /* SyncSubscribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0D61A18B6FF9800719BA6 /* SyncSubscribeViewController.m */; };
-		1FA0D61D18B6FF9800719BA6 /* SyncSubscribeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FA0D61B18B6FF9800719BA6 /* SyncSubscribeViewController.xib */; };
-		1FA0D62118B6FFC000719BA6 /* AsyncPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA0D61F18B6FFC000719BA6 /* AsyncPublishViewController.m */; };
-		1FA0D62218B6FFC000719BA6 /* AsyncPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FA0D62018B6FFC000719BA6 /* AsyncPublishViewController.xib */; };
 		1FA4D4BC18B98BFE00059D6B /* MANotificationCenterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4D4B218B98BFE00059D6B /* MANotificationCenterAdditions.m */; };
 		1FA4D4BD18B98BFE00059D6B /* MAWeakArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4D4B418B98BFE00059D6B /* MAWeakArray.m */; };
 		1FA4D4BE18B98BFE00059D6B /* MAWeakDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4D4B618B98BFE00059D6B /* MAWeakDictionary.m */; };
 		1FA4D4BF18B98BFE00059D6B /* MAZeroingWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4D4B818B98BFE00059D6B /* MAZeroingWeakProxy.m */; };
 		1FA4D4C018B98BFE00059D6B /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4D4BA18B98BFE00059D6B /* MAZeroingWeakRef.m */; };
-		1FA4D4C418B9984800059D6B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4D4C218B9984800059D6B /* MainViewController.m */; };
-		1FA4D4C518B9984800059D6B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FA4D4C318B9984800059D6B /* MainViewController.xib */; };
+		1FD331BA190A4814002C07B0 /* ObjCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD331B9190A4814002C07B0 /* ObjCUtil.m */; };
+		1FD331BF190A57EA002C07B0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD331BD190A57EA002C07B0 /* MainViewController.m */; };
+		1FD331C0190A57EA002C07B0 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD331BE190A57EA002C07B0 /* MainViewController.xib */; };
+		1FD331C3190A5A8C002C07B0 /* EventView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD331C2190A5A8C002C07B0 /* EventView.m */; };
+		1FD331C5190A5A99002C07B0 /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD331C4190A5A99002C07B0 /* EventView.xib */; };
+		1FD331C9190A5E8C002C07B0 /* AsyncSubscribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD331C7190A5E8C002C07B0 /* AsyncSubscribeViewController.m */; };
+		1FD331CA190A5E8C002C07B0 /* AsyncSubscribeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD331C8190A5E8C002C07B0 /* AsyncSubscribeViewController.xib */; };
+		1FD331CE190A5E98002C07B0 /* SyncSubscribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD331CC190A5E98002C07B0 /* SyncSubscribeViewController.m */; };
+		1FD331CF190A5E98002C07B0 /* SyncSubscribeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD331CD190A5E98002C07B0 /* SyncSubscribeViewController.xib */; };
+		1FD331D3190A5EAB002C07B0 /* AsyncPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD331D1190A5EAB002C07B0 /* AsyncPublishViewController.m */; };
+		1FD331D4190A5EAB002C07B0 /* AsyncPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD331D2190A5EAB002C07B0 /* AsyncPublishViewController.xib */; };
+		1FD331D8190A5EB7002C07B0 /* SyncPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD331D6190A5EB7002C07B0 /* SyncPublishViewController.m */; };
+		1FD331D9190A5EB7002C07B0 /* SyncPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD331D7190A5EB7002C07B0 /* SyncPublishViewController.xib */; };
+		1FD331DC190A63E4002C07B0 /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD331DB190A63E4002C07B0 /* UIView+Sizes.m */; };
+		1FD331DF190A941C002C07B0 /* ConsoleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD331DE190A941C002C07B0 /* ConsoleTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,20 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F9E68E118B72D4200996EA4 /* GeneralTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralTableCell.h; sourceTree = "<group>"; };
-		1F9E68E218B72D4200996EA4 /* GeneralTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralTableCell.m; sourceTree = "<group>"; };
-		1F9E68E418B72D9900996EA4 /* PublishCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishCell.h; sourceTree = "<group>"; };
-		1F9E68E518B72D9900996EA4 /* PublishCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishCell.m; sourceTree = "<group>"; };
-		1F9E68E618B72D9900996EA4 /* PublishCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PublishCell.xib; sourceTree = "<group>"; };
-		1F9E68EE18B7382D00996EA4 /* SyncPublishCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncPublishCell.h; sourceTree = "<group>"; };
-		1F9E68EF18B7382D00996EA4 /* SyncPublishCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncPublishCell.m; sourceTree = "<group>"; };
-		1F9E68F018B7382D00996EA4 /* SyncPublishCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncPublishCell.xib; sourceTree = "<group>"; };
-		1F9E68F318B7395800996EA4 /* SubscribeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeCell.h; sourceTree = "<group>"; };
-		1F9E68F418B7395800996EA4 /* SubscribeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeCell.m; sourceTree = "<group>"; };
-		1F9E68F518B7395800996EA4 /* SubscribeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubscribeCell.xib; sourceTree = "<group>"; };
-		1F9ED63E18B70CEB0053016D /* SyncPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncPublishViewController.h; sourceTree = "<group>"; };
-		1F9ED63F18B70CEB0053016D /* SyncPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncPublishViewController.m; sourceTree = "<group>"; };
-		1F9ED64018B70CEB0053016D /* SyncPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncPublishViewController.xib; sourceTree = "<group>"; };
 		1FA0D5D818B6F56B00719BA6 /* EventBusDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventBusDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA0D5DB18B6F56B00719BA6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1FA0D5DD18B6F56B00719BA6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -89,15 +73,6 @@
 		1FA0D60C18B6F5CC00719BA6 /* EventBus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventBus.m; sourceTree = "<group>"; };
 		1FA0D60D18B6F5CC00719BA6 /* EventPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventPublisher.h; sourceTree = "<group>"; };
 		1FA0D60E18B6F5CC00719BA6 /* EventSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSubscriber.h; sourceTree = "<group>"; };
-		1FA0D61418B6FF8700719BA6 /* AsyncSubscribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSubscribeViewController.h; sourceTree = "<group>"; };
-		1FA0D61518B6FF8700719BA6 /* AsyncSubscribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSubscribeViewController.m; sourceTree = "<group>"; };
-		1FA0D61618B6FF8700719BA6 /* AsyncSubscribeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AsyncSubscribeViewController.xib; sourceTree = "<group>"; };
-		1FA0D61918B6FF9800719BA6 /* SyncSubscribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncSubscribeViewController.h; sourceTree = "<group>"; };
-		1FA0D61A18B6FF9800719BA6 /* SyncSubscribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncSubscribeViewController.m; sourceTree = "<group>"; };
-		1FA0D61B18B6FF9800719BA6 /* SyncSubscribeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncSubscribeViewController.xib; sourceTree = "<group>"; };
-		1FA0D61E18B6FFC000719BA6 /* AsyncPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncPublishViewController.h; sourceTree = "<group>"; };
-		1FA0D61F18B6FFC000719BA6 /* AsyncPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncPublishViewController.m; sourceTree = "<group>"; };
-		1FA0D62018B6FFC000719BA6 /* AsyncPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AsyncPublishViewController.xib; sourceTree = "<group>"; };
 		1FA4D4B118B98BFE00059D6B /* MANotificationCenterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANotificationCenterAdditions.h; sourceTree = "<group>"; };
 		1FA4D4B218B98BFE00059D6B /* MANotificationCenterAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANotificationCenterAdditions.m; sourceTree = "<group>"; };
 		1FA4D4B318B98BFE00059D6B /* MAWeakArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeakArray.h; sourceTree = "<group>"; };
@@ -109,9 +84,30 @@
 		1FA4D4B918B98BFE00059D6B /* MAZeroingWeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAZeroingWeakRef.h; sourceTree = "<group>"; };
 		1FA4D4BA18B98BFE00059D6B /* MAZeroingWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAZeroingWeakRef.m; sourceTree = "<group>"; };
 		1FA4D4BB18B98BFE00059D6B /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAZeroingWeakRefNativeZWRNotAllowedTable.h; sourceTree = "<group>"; };
-		1FA4D4C118B9984800059D6B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		1FA4D4C218B9984800059D6B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		1FA4D4C318B9984800059D6B /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		1FD331B8190A4814002C07B0 /* ObjCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCUtil.h; sourceTree = "<group>"; };
+		1FD331B9190A4814002C07B0 /* ObjCUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCUtil.m; sourceTree = "<group>"; };
+		1FD331BC190A57EA002C07B0 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		1FD331BD190A57EA002C07B0 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		1FD331BE190A57EA002C07B0 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		1FD331C1190A5A8C002C07B0 /* EventView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventView.h; sourceTree = "<group>"; };
+		1FD331C2190A5A8C002C07B0 /* EventView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventView.m; sourceTree = "<group>"; };
+		1FD331C4190A5A99002C07B0 /* EventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventView.xib; sourceTree = "<group>"; };
+		1FD331C6190A5E8C002C07B0 /* AsyncSubscribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSubscribeViewController.h; sourceTree = "<group>"; };
+		1FD331C7190A5E8C002C07B0 /* AsyncSubscribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSubscribeViewController.m; sourceTree = "<group>"; };
+		1FD331C8190A5E8C002C07B0 /* AsyncSubscribeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AsyncSubscribeViewController.xib; sourceTree = "<group>"; };
+		1FD331CB190A5E98002C07B0 /* SyncSubscribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncSubscribeViewController.h; sourceTree = "<group>"; };
+		1FD331CC190A5E98002C07B0 /* SyncSubscribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncSubscribeViewController.m; sourceTree = "<group>"; };
+		1FD331CD190A5E98002C07B0 /* SyncSubscribeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncSubscribeViewController.xib; sourceTree = "<group>"; };
+		1FD331D0190A5EAB002C07B0 /* AsyncPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncPublishViewController.h; sourceTree = "<group>"; };
+		1FD331D1190A5EAB002C07B0 /* AsyncPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncPublishViewController.m; sourceTree = "<group>"; };
+		1FD331D2190A5EAB002C07B0 /* AsyncPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AsyncPublishViewController.xib; sourceTree = "<group>"; };
+		1FD331D5190A5EB7002C07B0 /* SyncPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncPublishViewController.h; sourceTree = "<group>"; };
+		1FD331D6190A5EB7002C07B0 /* SyncPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncPublishViewController.m; sourceTree = "<group>"; };
+		1FD331D7190A5EB7002C07B0 /* SyncPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncPublishViewController.xib; sourceTree = "<group>"; };
+		1FD331DA190A63E4002C07B0 /* UIView+Sizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Sizes.h"; sourceTree = "<group>"; };
+		1FD331DB190A63E4002C07B0 /* UIView+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Sizes.m"; sourceTree = "<group>"; };
+		1FD331DD190A941C002C07B0 /* ConsoleTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleTextView.h; sourceTree = "<group>"; };
+		1FD331DE190A941C002C07B0 /* ConsoleTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsoleTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,17 +137,11 @@
 		1F9E68DD18B72BFA00996EA4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1F9E68E118B72D4200996EA4 /* GeneralTableCell.h */,
-				1F9E68E218B72D4200996EA4 /* GeneralTableCell.m */,
-				1F9E68E418B72D9900996EA4 /* PublishCell.h */,
-				1F9E68E518B72D9900996EA4 /* PublishCell.m */,
-				1F9E68E618B72D9900996EA4 /* PublishCell.xib */,
-				1F9E68EE18B7382D00996EA4 /* SyncPublishCell.h */,
-				1F9E68EF18B7382D00996EA4 /* SyncPublishCell.m */,
-				1F9E68F018B7382D00996EA4 /* SyncPublishCell.xib */,
-				1F9E68F318B7395800996EA4 /* SubscribeCell.h */,
-				1F9E68F418B7395800996EA4 /* SubscribeCell.m */,
-				1F9E68F518B7395800996EA4 /* SubscribeCell.xib */,
+				1FD331C1190A5A8C002C07B0 /* EventView.h */,
+				1FD331C2190A5A8C002C07B0 /* EventView.m */,
+				1FD331C4190A5A99002C07B0 /* EventView.xib */,
+				1FD331DD190A941C002C07B0 /* ConsoleTextView.h */,
+				1FD331DE190A941C002C07B0 /* ConsoleTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,15 +180,15 @@
 		1FA0D5E118B6F56B00719BA6 /* EventBusDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1FD331B7190A4809002C07B0 /* Other */,
 				1F9E68DD18B72BFA00996EA4 /* View */,
 				1FA0D61018B6FEA100719BA6 /* Controller */,
 				1FA0D5EA18B6F56B00719BA6 /* AppDelegate.h */,
 				1FA0D5EB18B6F56B00719BA6 /* AppDelegate.m */,
+				1FD331DA190A63E4002C07B0 /* UIView+Sizes.h */,
+				1FD331DB190A63E4002C07B0 /* UIView+Sizes.m */,
 				1FA0D5ED18B6F56B00719BA6 /* Images.xcassets */,
 				1FA0D5E218B6F56B00719BA6 /* Supporting Files */,
-				1FA4D4C118B9984800059D6B /* MainViewController.h */,
-				1FA4D4C218B9984800059D6B /* MainViewController.m */,
-				1FA4D4C318B9984800059D6B /* MainViewController.xib */,
 			);
 			path = EventBusDemo;
 			sourceTree = "<group>";
@@ -247,18 +237,21 @@
 		1FA0D61018B6FEA100719BA6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1FA0D61418B6FF8700719BA6 /* AsyncSubscribeViewController.h */,
-				1FA0D61518B6FF8700719BA6 /* AsyncSubscribeViewController.m */,
-				1FA0D61618B6FF8700719BA6 /* AsyncSubscribeViewController.xib */,
-				1FA0D61918B6FF9800719BA6 /* SyncSubscribeViewController.h */,
-				1FA0D61A18B6FF9800719BA6 /* SyncSubscribeViewController.m */,
-				1FA0D61B18B6FF9800719BA6 /* SyncSubscribeViewController.xib */,
-				1FA0D61E18B6FFC000719BA6 /* AsyncPublishViewController.h */,
-				1FA0D61F18B6FFC000719BA6 /* AsyncPublishViewController.m */,
-				1FA0D62018B6FFC000719BA6 /* AsyncPublishViewController.xib */,
-				1F9ED63E18B70CEB0053016D /* SyncPublishViewController.h */,
-				1F9ED63F18B70CEB0053016D /* SyncPublishViewController.m */,
-				1F9ED64018B70CEB0053016D /* SyncPublishViewController.xib */,
+				1FD331BC190A57EA002C07B0 /* MainViewController.h */,
+				1FD331BD190A57EA002C07B0 /* MainViewController.m */,
+				1FD331BE190A57EA002C07B0 /* MainViewController.xib */,
+				1FD331C6190A5E8C002C07B0 /* AsyncSubscribeViewController.h */,
+				1FD331C7190A5E8C002C07B0 /* AsyncSubscribeViewController.m */,
+				1FD331C8190A5E8C002C07B0 /* AsyncSubscribeViewController.xib */,
+				1FD331D0190A5EAB002C07B0 /* AsyncPublishViewController.h */,
+				1FD331D1190A5EAB002C07B0 /* AsyncPublishViewController.m */,
+				1FD331D2190A5EAB002C07B0 /* AsyncPublishViewController.xib */,
+				1FD331CB190A5E98002C07B0 /* SyncSubscribeViewController.h */,
+				1FD331CC190A5E98002C07B0 /* SyncSubscribeViewController.m */,
+				1FD331CD190A5E98002C07B0 /* SyncSubscribeViewController.xib */,
+				1FD331D5190A5EB7002C07B0 /* SyncPublishViewController.h */,
+				1FD331D6190A5EB7002C07B0 /* SyncPublishViewController.m */,
+				1FD331D7190A5EB7002C07B0 /* SyncPublishViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -279,6 +272,15 @@
 				1FA4D4BB18B98BFE00059D6B /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */,
 			);
 			path = MAZeroingWeakRef;
+			sourceTree = "<group>";
+		};
+		1FD331B7190A4809002C07B0 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				1FD331B8190A4814002C07B0 /* ObjCUtil.h */,
+				1FD331B9190A4814002C07B0 /* ObjCUtil.m */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,16 +358,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F9E68F218B7382D00996EA4 /* SyncPublishCell.xib in Resources */,
+				1FD331CF190A5E98002C07B0 /* SyncSubscribeViewController.xib in Resources */,
+				1FD331D9190A5EB7002C07B0 /* SyncPublishViewController.xib in Resources */,
 				1FA0D5E618B6F56B00719BA6 /* InfoPlist.strings in Resources */,
-				1FA0D61818B6FF8700719BA6 /* AsyncSubscribeViewController.xib in Resources */,
-				1FA0D61D18B6FF9800719BA6 /* SyncSubscribeViewController.xib in Resources */,
-				1F9ED64218B70CEB0053016D /* SyncPublishViewController.xib in Resources */,
-				1FA0D62218B6FFC000719BA6 /* AsyncPublishViewController.xib in Resources */,
-				1F9E68F718B7395800996EA4 /* SubscribeCell.xib in Resources */,
-				1FA4D4C518B9984800059D6B /* MainViewController.xib in Resources */,
-				1F9E68E818B72D9900996EA4 /* PublishCell.xib in Resources */,
+				1FD331CA190A5E8C002C07B0 /* AsyncSubscribeViewController.xib in Resources */,
+				1FD331C0190A57EA002C07B0 /* MainViewController.xib in Resources */,
 				1FA0D5EE18B6F56B00719BA6 /* Images.xcassets in Resources */,
+				1FD331D4190A5EAB002C07B0 /* AsyncPublishViewController.xib in Resources */,
+				1FD331C5190A5A99002C07B0 /* EventView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,23 +384,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F9ED64118B70CEB0053016D /* SyncPublishViewController.m in Sources */,
-				1F9E68F618B7395800996EA4 /* SubscribeCell.m in Sources */,
 				1FA0D5EC18B6F56B00719BA6 /* AppDelegate.m in Sources */,
-				1FA0D61C18B6FF9800719BA6 /* SyncSubscribeViewController.m in Sources */,
+				1FD331CE190A5E98002C07B0 /* SyncSubscribeViewController.m in Sources */,
 				1FA4D4BF18B98BFE00059D6B /* MAZeroingWeakProxy.m in Sources */,
+				1FD331BA190A4814002C07B0 /* ObjCUtil.m in Sources */,
+				1FD331BF190A57EA002C07B0 /* MainViewController.m in Sources */,
+				1FD331C9190A5E8C002C07B0 /* AsyncSubscribeViewController.m in Sources */,
+				1FD331D8190A5EB7002C07B0 /* SyncPublishViewController.m in Sources */,
 				1FA4D4BE18B98BFE00059D6B /* MAWeakDictionary.m in Sources */,
-				1F9E68E718B72D9900996EA4 /* PublishCell.m in Sources */,
-				1FA4D4C418B9984800059D6B /* MainViewController.m in Sources */,
+				1FD331DF190A941C002C07B0 /* ConsoleTextView.m in Sources */,
 				1FA4D4C018B98BFE00059D6B /* MAZeroingWeakRef.m in Sources */,
-				1F9E68E318B72D4200996EA4 /* GeneralTableCell.m in Sources */,
-				1FA0D62118B6FFC000719BA6 /* AsyncPublishViewController.m in Sources */,
-				1F9E68F118B7382D00996EA4 /* SyncPublishCell.m in Sources */,
 				1FA0D5E818B6F56B00719BA6 /* main.m in Sources */,
 				1FA4D4BC18B98BFE00059D6B /* MANotificationCenterAdditions.m in Sources */,
+				1FD331DC190A63E4002C07B0 /* UIView+Sizes.m in Sources */,
+				1FD331C3190A5A8C002C07B0 /* EventView.m in Sources */,
+				1FD331D3190A5EAB002C07B0 /* AsyncPublishViewController.m in Sources */,
 				1FA4D4BD18B98BFE00059D6B /* MAWeakArray.m in Sources */,
 				1FA0D60F18B6F5CC00719BA6 /* EventBus.m in Sources */,
-				1FA0D61718B6FF8700719BA6 /* AsyncSubscribeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
