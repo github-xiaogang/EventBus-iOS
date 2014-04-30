@@ -1,10 +1,9 @@
-EventBus-iOS
-============
+#EventBus-iOS
 
-EventBus for iOS  non-ARC
+`why you use it?`
 
-to help you use it, I write a Xcode plug-in called EventBus-iOS-Plugin ( https://github.com/github-xiaogang/EventBus-iOS-Plugin )
-
+`EventBus`使用起来类似于NSNotification：通过订阅和发布消息实现模块之间的通信， 这种通信机制降低了各个模块之耦合度，非常灵活。
+`EventBus`除了提供系统NSNotification的基础功能外，还提供了异步消息，这种消息可以存储在`EventBus`上，可以实现异步读取，延时读取，条件读取。
 
 有两种事件:
 1. SyncEvent  类似于使用NotificationCenter发出的通知，不会存储在EventBus上，
@@ -26,9 +25,13 @@ to help you use it, I write a Xcode plug-in called EventBus-iOS-Plugin ( https:/
   2. 在事件发生时使用宏EVENT_PUBLISH(self,eventName)发布eventName事件，或使用EVENT_PUBLISH_WITHDATA(self,eventName,eventData)
      在发布事件同时传递eventData数据.
 
+to help you use it, I write a Xcode plug-in called [EventBus-iOS-Plugin](https://github.com/github-xiaogang/EventBus-iOS-Plugin)
+
+**EventBus for iOS  non-ARC**
+
 另外:
   代码中使用了 MAZeroingWeakRef 来实现弱引用， 地址: https://github.com/mikeash/MAZeroingWeakRef
 
+
+
 详见Demo
-
-
