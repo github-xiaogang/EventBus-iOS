@@ -1,4 +1,4 @@
-#EventBus-iOS
+# EventBus-iOS
 
 `why you use it?`
 
